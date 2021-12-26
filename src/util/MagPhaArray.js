@@ -1,14 +1,21 @@
-const ComplexArray = require('../ComplexArray');
-const MagPha = require('./MagPha');
+const ComplexArray = require("../ComplexArray");
+const MagPha = require("./MagPha");
 
 class MagPhaArray extends Array {
   constructor(complexArray) {
     super();
-    if (!(complexArray instanceof ComplexArray)) throw new Error('Wrong type of a complexArray argument, expected ComplexArray type');
+    if (!(complexArray instanceof ComplexArray))
+      throw new Error(
+        "Wrong type of a complexArray argument, expected ComplexArray type"
+      );
     this.complexArray = complexArray.deepCopy();
     for (let i = 0; i < this.complexArray.length / 2; i += 1) {
       super.push(new MagPha(i, this.complexArray));
     }
+  }
+
+  slice(start, end) {
+    return [...this].slice(start, end);
   }
 
   push() {
@@ -20,14 +27,14 @@ class MagPhaArray extends Array {
   }
 
   deleteFrequencies(...frequencies) {
-    frequencies.forEach(frequency => this[frequency].zero());
+    frequencies.forEach((frequency) => this[frequency].zero());
   }
 
   deleteAllOthersFrequencies(...frequencies) {
     const allFrequencies = {};
     for (let i = 0; i < this.length; i += 1) allFrequencies[i] = i;
-    frequencies.forEach(frequency => delete allFrequencies[frequency]);
-    Object.keys(allFrequencies).forEach(frequency => this[frequency].zero());
+    frequencies.forEach((frequency) => delete allFrequencies[frequency]);
+    Object.keys(allFrequencies).forEach((frequency) => this[frequency].zero());
   }
 }
 

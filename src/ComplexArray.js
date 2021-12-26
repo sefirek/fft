@@ -1,4 +1,4 @@
-const Complex = require('./Complex');
+const Complex = require("./Complex");
 
 /**
  * Tworzy tablicę z argumentami typu Complex
@@ -16,6 +16,10 @@ class ComplexArray extends Array {
     }
   }
 
+  slice(start, end) {
+    return [...this].slice(start, end);
+  }
+
   /**
    * Umieszcza element w tablicy
    * @param {Complex} complex
@@ -23,7 +27,8 @@ class ComplexArray extends Array {
    * @throws {Error} niepoprawny typ argumentu
    */
   push(complex) {
-    if (!(complex instanceof Complex)) throw new Error('Wrong type of complex argument, expected Complex type');
+    if (!(complex instanceof Complex))
+      throw new Error("Wrong type of complex argument, expected Complex type");
     super.push(complex);
     return this;
   }
@@ -34,7 +39,7 @@ class ComplexArray extends Array {
    */
   deepCopy() {
     const result = new ComplexArray();
-    super.forEach(complex => result.push(complex.copy()));
+    super.forEach((complex) => result.push(complex.copy()));
     return result;
   }
 
@@ -46,8 +51,12 @@ class ComplexArray extends Array {
    * @throws {Error} Niepoprawny rozmiar kopiowanej tablicy
    */
   rewrite(complexArray) {
-    if (!(complexArray instanceof ComplexArray)) throw new Error('Argument must be the type of ComplexArray');
-    if (this.length !== complexArray.length) throw new Error(`Mismatch of length. Length = ${complexArray.length}, expected ${this.length}.`);
+    if (!(complexArray instanceof ComplexArray))
+      throw new Error("Argument must be the type of ComplexArray");
+    if (this.length !== complexArray.length)
+      throw new Error(
+        `Mismatch of length. Length = ${complexArray.length}, expected ${this.length}.`
+      );
     for (let i = 0; i < this.length; i += 1) {
       this[i].init(complexArray[i]);
     }
@@ -79,7 +88,8 @@ class ComplexArray extends Array {
  * @throws {Error} array nie jest zwykłą tablicą
  */
 ComplexArray.createFromArray = (array) => {
-  if (!array || array.constructor.name !== 'Array') throw Error('Wrong type of array argument, expected simple Array object.');
+  if (!array || array.constructor.name !== "Array")
+    throw Error("Wrong type of array argument, expected simple Array object.");
   const result = new ComplexArray();
   const l = array.length;
   for (let i = 0; i < l; i += 1) {
