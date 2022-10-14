@@ -1,4 +1,4 @@
-import ComplexArray from '../ComplexArray';
+import ComplexArray from './ComplexArray';
 
 export default class MagPha {
   constructor(frequency, complexArray) {

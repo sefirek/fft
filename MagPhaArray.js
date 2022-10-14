@@ -1,4 +1,4 @@
-import ComplexArray from '../ComplexArray';
+import ComplexArray from './ComplexArray';
 import MagPha from './MagPha';
 
 export default class MagPhaArray extends Array {
