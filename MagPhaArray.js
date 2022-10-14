@@ -27,13 +27,13 @@ export default class MagPhaArray extends Array {
 	}
 
 	deleteFrequencies(...frequencies) {
-		frequencies.forEach((frequency) => this[frequency].zero());
+		frequencies.forEach((frequency) => this[frequency]?.zero());
 	}
 
 	deleteAllOthersFrequencies(...frequencies) {
 		const allFrequencies = {};
 		for (let i = 0; i < this.length; i += 1) allFrequencies[i] = i;
 		frequencies.forEach((frequency) => delete allFrequencies[frequency]);
-		Object.keys(allFrequencies).forEach((frequency) => this[frequency].zero());
+		Object.keys(allFrequencies).forEach((frequency) => this[frequency]?.zero());
 	}
 }
