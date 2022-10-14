@@ -1,5 +1,5 @@
 /* eslint-disable no-bitwise */
-function reverseBits(x, bits) {
+export default function reverseBits(x, bits) {
   let bit = 1;
   let reverse = 0;
   for (let i = 0; i < bits; i += 1) {
@@ -9,5 +9,3 @@ function reverseBits(x, bits) {
   }
   return reverse;
 }
-
-module.exports = reverseBits;

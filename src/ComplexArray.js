@@ -1,9 +1,9 @@
-const Complex = require("./Complex");
+import Complex from './Complex';
 
 /**
  * Tworzy tablicę z argumentami typu Complex
  */
-class ComplexArray extends Array {
+export default class ComplexArray extends Array {
   /**
    * Jeżeli size > 0, tworzy tablicę n-elementową wypełnioną instancjami klasy Complex
    * @param {Number} size rozmiar tablicy
@@ -28,7 +28,7 @@ class ComplexArray extends Array {
    */
   push(complex) {
     if (!(complex instanceof Complex))
-      throw new Error("Wrong type of complex argument, expected Complex type");
+      throw new Error('Wrong type of complex argument, expected Complex type');
     super.push(complex);
     return this;
   }
@@ -52,7 +52,7 @@ class ComplexArray extends Array {
    */
   rewrite(complexArray) {
     if (!(complexArray instanceof ComplexArray))
-      throw new Error("Argument must be the type of ComplexArray");
+      throw new Error('Argument must be the type of ComplexArray');
     if (this.length !== complexArray.length)
       throw new Error(
         `Mismatch of length. Length = ${complexArray.length}, expected ${this.length}.`
@@ -88,8 +88,8 @@ class ComplexArray extends Array {
  * @throws {Error} array nie jest zwykłą tablicą
  */
 ComplexArray.createFromArray = (array) => {
-  if (!array || array.constructor.name !== "Array")
-    throw Error("Wrong type of array argument, expected simple Array object.");
+  if (!array || array.constructor.name !== 'Array')
+    throw Error('Wrong type of array argument, expected simple Array object.');
   const result = new ComplexArray();
   const l = array.length;
   for (let i = 0; i < l; i += 1) {
@@ -97,5 +97,3 @@ ComplexArray.createFromArray = (array) => {
   }
   return result;
 };
-
-module.exports = ComplexArray;

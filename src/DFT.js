@@ -1,8 +1,8 @@
 /* eslint-disable no-restricted-properties */
-const MiniDFT = require('./MiniDFT');
-const ComplexArray = require('./ComplexArray');
+import MiniDFT from './MiniDFT';
+import ComplexArray from './ComplexArray';
 
-class DFT {
+export default class DFT {
   constructor(inputSize) {
     if (Number.isNaN(Number.parseInt(inputSize, 10))) throw new Error('Wrong inputSize argument, expected Number type.');
     if (Math.pow(2, Math.floor(Math.log2(inputSize))) !== inputSize) throw new Error('Wrong value of inputSize argument, expected value power of 2.');
@@ -52,5 +52,3 @@ class DFT {
     return this.output.deepCopy();
   }
 }
-
-module.exports = DFT;

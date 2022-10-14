@@ -2,7 +2,7 @@
 /**
  * Liczba zespolona
  */
-class Complex {
+export default class Complex {
   /**
    * Tworzy połączenie części rzeczywistej i urojonej
    * @param {Number} re część rzeczywista
@@ -150,4 +150,3 @@ class Complex {
   }
 }
 
-module.exports = Complex;

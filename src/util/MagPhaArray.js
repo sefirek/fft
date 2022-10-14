@@ -1,12 +1,12 @@
-const ComplexArray = require("../ComplexArray");
-const MagPha = require("./MagPha");
+import ComplexArray from '../ComplexArray';
+import MagPha from './MagPha';
 
-class MagPhaArray extends Array {
+export default class MagPhaArray extends Array {
   constructor(complexArray) {
     super();
     if (!(complexArray instanceof ComplexArray))
       throw new Error(
-        "Wrong type of a complexArray argument, expected ComplexArray type"
+        'Wrong type of a complexArray argument, expected ComplexArray type'
       );
     this.complexArray = complexArray.deepCopy();
     for (let i = 0; i < this.complexArray.length / 2; i += 1) {
@@ -37,5 +37,3 @@ class MagPhaArray extends Array {
     Object.keys(allFrequencies).forEach((frequency) => this[frequency].zero());
   }
 }
-
-module.exports = MagPhaArray;

@@ -1,0 +1,24 @@
+{
+  "name": "fft",
+  "version": "1.0.0",
+  "description": "fast fourier transform",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sefirek/fft.git"
+  },
+  "keywords": [
+    "fft",
+    "fast",
+    "fourier",
+    "transform"
+  ],
+  "author": "Rafał Kogut sefir@o2.pl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sefirek/fft/issues"
+  },
+  "homepage": "https://github.com/sefirek/fft#readme"
+}

@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-properties */
-const exponent = require('./exponent');
-const reverseBits = require('./reverseBits');
-const ComplexArray = require('./ComplexArray');
+import exponent from './exponent';
+import reverseBits from './reverseBits';
+import ComplexArray from './ComplexArray';
 /**
  * Konstruktor łączy w pary 2 wejścia z 2 wyjściami.
  * Przy parametrze level = 0, następuje odwrócenie kolejności bitów
@@ -10,7 +10,7 @@ const ComplexArray = require('./ComplexArray');
  * w ciągu przetwarzającym weście powinna być o rozmiarze 2 razy mniejszym niż rozmiar ciągu
  * wejściowego.
  */
-class MiniDFT {
+export default class MiniDFT {
   /**
    * @param {ComplexArray} input ciąg wejściowy
    * @param {ComplexArray} output ciąg wyjściowy
@@ -80,5 +80,3 @@ class MiniDFT {
     evenOutput.add(evenInput);
   }
 }
-
-module.exports = MiniDFT;

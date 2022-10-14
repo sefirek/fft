@@ -1,6 +1,6 @@
-const ComplexArray = require('../ComplexArray');
+import ComplexArray from '../ComplexArray';
 
-class MagPha {
+export default class MagPha {
   constructor(frequency, complexArray) {
     if (!(complexArray instanceof ComplexArray)) throw new Error('Wrong type of a complexArray argument, expected ComplexArray type');
     const { re, im } = complexArray[frequency];
@@ -31,5 +31,3 @@ class MagPha {
     return this;
   }
 }
-
-module.exports = MagPha;
